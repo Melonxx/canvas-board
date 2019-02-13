@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    body{background-color: #000;}
+    #oc{background-color: #fff; margin-left: 500px;}
+	</style>
+</head>
+<body>
+	<canvas id="oc" width="800" height="800"></canvas>
+<script>
+window.open("http://www.baidu.com","_blank")
+    var oc = document.querySelector('#oc');
+    var zxc = oc.getContext('2d');
+    var num = 0;
+    oc.onmousedown = function (e) {
+       var e = e || window.event;
+       var ox = e.clientX - oc.offsetLeft;
+       var oy = e.clientY - oc.offsetTop;
+       var num = 0;
+       zxc.beginPath();
+
+       zxc.moveTo(ox,oy);
+       oc.onmousemove = function (e) {
+          var e = e || window.event;
+          var ox = e.clientX - oc.offsetLeft;
+          var oy = e.clientY - oc.offsetTop;
+          var color = ['red','black','blue','green','yellow'];
+         //console.log(num);
+          
+          
+          
+          zxc.strokeStyle = '#'+parseInt(Math.random()*1000000);
+		  num++;zxc.lineWidth = 4;
+          zxc.lineTo(ox,oy);
+          zxc.stroke();
+
+       };};
+       document.onmouseup = function () {
+          oc.onmousemove =  null;
+
+       
+    };
+    console.log(navigator.userAgent);
+    console.log(navigator.vendor);
+</script>
+
+</body>
+</html>
